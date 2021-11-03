@@ -1,0 +1,41 @@
+PS C:\Faculdade\docker> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Faculdade\docker> docker run -d -p 80:80 nginx
+89b189515b988c03b3cdaef8bf3eb3825657440e7a9e70f67d153a8dbaea8b65
+PS C:\Faculdade\docker> docker run -d --network=bridge nginx
+03f373152737729defe39faddc399687071e9346b7d5052c2b0e1ac9db02b7da
+PS C:\Faculdade\docker> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS
+   PORTS                NAMES
+03f373152737   nginx     "/docker-entrypoint.…"   25 seconds ago       Up 23 seconds    
+   80/tcp               stupefied_curie
+89b189515b98   nginx     "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   musing_mahavira
+docker: No port specified: :/tcp<empty>.
+See 'docker run --help'.
+PS C:\Faculdade\docker> docker run -d --network=bridge MYSQL_ROOT_PASSEORD=123 mysql    
+docker: invalid reference format: repository name must be lowercase.
+See 'docker run --help'.
+PS C:\Faculdade\docker> docker run -d --network=bridge -e MYSQL_ROOT_PASSWORD=123 mysql 
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+b380bbd43752: Already exists
+f23cbf2ecc5d: Pull complete
+30cfc6c29c0a: Pull complete
+b38609286cbe: Pull complete
+8211d9e66cd6: Pull complete
+2313f9eeca4a: Pull complete
+7eb487d00da0: Pull complete
+4d7421c8152e: Pull complete
+77f3d8811a28: Pull complete
+cce755338cba: Pull complete
+69b753046b9f: Pull complete
+b2e64b0ab53c: Pull complete
+Digest: sha256:6d7d4524463fe6e2b893ffc2b89543c81dec7ef82fb2020a1b27606666464d87
+Status: Downloaded newer image for mysql:latest
+b1c4e85db8a258cc82f42bd6c1585228e5c594101ca8d5faee9732798968d59b
+PS C:\Faculdade\docker> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                 NAMES
+b1c4e85db8a2   mysql     "docker-entrypoint.s…"   13 seconds ago   Up 12 seconds   3306/tcp, 33060/tcp   reverent_jemison
+03f373152737   nginx     "/docker-entrypoint.…"   6 minutes ago    Up 6 minutes    80/tcp                stupefied_curie
+89b189515b98   nginx     "/docker-entrypoint.…"   7 minutes ago    Up 7 minutes    0.0.0.0:80->80/tcp    musing_mahavira
+PS C:\Faculdade\docker> 
